@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mercy Ajoke Supreme | Data Scientist & Researcher</title>
-    <!-- Premium Fonts -->
+    <title>Mercy Ajoke Supreme | Full Stack Developer &amp; AI Engineer</title>
+    <meta name="description"
+        content="Mercy Ajoke Supreme, a full stack developer in Edmonton, Alberta, building AI-enabled web applications with React, Next.js, TypeScript, and Node.js.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,26 +15,29 @@
 
     <style>
         :root {
-            /* Vivid Light Palette / Glassmorphism */
-            --glass-bg: rgba(255, 255, 255, 0.55);
-            --glass-border: rgba(255, 255, 255, 0.8);
+            --glass-bg: rgba(255, 255, 255, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.85);
             --text-dark: #1e293b;
-            --text-muted: #64748b;
+            --text-body: #334155;
+            --text-muted: #5b6577;
 
-            /* Bright Accents */
-            --accent-magenta: #ec4899;
-            --accent-violet: #8b5cf6;
-            --accent-cyan: #06b6d4;
+            --accent-magenta: #db2777;
+            --accent-violet: #7c3aed;
+            --accent-cyan: #0891b2;
             --accent-amber: #f59e0b;
 
-            --font-main: 'Outfit', sans-serif;
-            --font-serif: 'Playfair Display', serif;
+            --font-main: 'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -44,14 +48,27 @@
             background-color: #fdf2f8;
         }
 
+        a {
+            color: var(--accent-violet);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            color: var(--accent-magenta);
+        }
+
+        a:focus-visible,
+        .btn:focus-visible {
+            outline: 3px solid var(--accent-cyan);
+            outline-offset: 3px;
+            border-radius: 6px;
+        }
+
         /* --- 3D HOLO-LOTUS BACKGROUND --- */
         .holo-bg {
             position: fixed;
-            top: 50%;
-            left: 50%;
-            width: 100vw;
-            height: 100vh;
-            transform: translate(-50%, -50%);
+            inset: 0;
             perspective: 1000px;
             z-index: -1;
             display: flex;
@@ -79,157 +96,74 @@
         }
 
         @keyframes holo-spin {
-            0% {
-                transform: rotateX(60deg) rotateY(0deg) rotateZ(0deg);
-            }
-
-            100% {
-                transform: rotateX(60deg) rotateY(0deg) rotateZ(360deg);
-            }
+            from { transform: rotateX(60deg) rotateZ(0deg); }
+            to { transform: rotateX(60deg) rotateZ(360deg); }
         }
 
         .petal {
             position: absolute;
-            top: 10%;
-            bottom: 10%;
-            left: 10%;
-            right: 10%;
+            inset: 10%;
             border-radius: 50%;
             border: 2px solid rgba(255, 255, 255, 0.8);
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            box-sizing: border-box;
             transform-style: preserve-3d;
         }
 
-        .petal-1 {
-            transform: rotateX(0deg) rotateY(45deg);
-            box-shadow: 0 0 30px rgba(236, 72, 153, 0.5), inset 0 0 30px rgba(236, 72, 153, 0.5);
-            animation: pulse-1 3s infinite alternate ease-in-out;
-        }
-
-        .petal-2 {
-            transform: rotateX(45deg) rotateY(90deg);
-            box-shadow: 0 0 30px rgba(139, 92, 246, 0.5), inset 0 0 30px rgba(139, 92, 246, 0.5);
-            animation: pulse-2 4s infinite alternate ease-in-out;
-        }
-
-        .petal-3 {
-            transform: rotateX(90deg) rotateY(135deg);
-            box-shadow: 0 0 30px rgba(6, 182, 212, 0.5), inset 0 0 30px rgba(6, 182, 212, 0.5);
-            animation: pulse-3 3.5s infinite alternate ease-in-out;
-        }
-
-        .petal-4 {
-            transform: rotateX(135deg) rotateY(0deg);
-            box-shadow: 0 0 30px rgba(251, 146, 60, 0.5), inset 0 0 30px rgba(251, 146, 60, 0.5);
-            animation: pulse-4 2.5s infinite alternate ease-in-out;
-        }
+        .petal-1 { transform: rotateY(45deg); box-shadow: 0 0 40px rgba(236, 72, 153, 0.55), inset 0 0 40px rgba(236, 72, 153, 0.55); }
+        .petal-2 { transform: rotateX(45deg) rotateY(90deg); box-shadow: 0 0 40px rgba(139, 92, 246, 0.55), inset 0 0 40px rgba(139, 92, 246, 0.55); }
+        .petal-3 { transform: rotateX(90deg) rotateY(135deg); box-shadow: 0 0 40px rgba(6, 182, 212, 0.55), inset 0 0 40px rgba(6, 182, 212, 0.55); }
+        .petal-4 { transform: rotateX(135deg); box-shadow: 0 0 40px rgba(251, 146, 60, 0.55), inset 0 0 40px rgba(251, 146, 60, 0.55); }
 
         .petal-core {
             position: absolute;
-            top: 38%;
-            bottom: 38%;
-            left: 38%;
-            right: 38%;
+            inset: 38%;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.9);
             box-shadow: 0 0 60px rgba(236, 72, 153, 1), 0 0 100px rgba(139, 92, 246, 0.8);
             transform: translateZ(50px);
         }
 
-        @keyframes pulse-1 {
-            0% {
-                box-shadow: 0 0 20px rgba(236, 72, 153, 0.4), inset 0 0 20px rgba(236, 72, 153, 0.4);
-            }
-
-            100% {
-                box-shadow: 0 0 70px rgba(236, 72, 153, 0.8), inset 0 0 70px rgba(236, 72, 153, 0.8);
-                background: rgba(236, 72, 153, 0.2);
-            }
-        }
-
-        @keyframes pulse-2 {
-            0% {
-                box-shadow: 0 0 20px rgba(139, 92, 246, 0.4), inset 0 0 20px rgba(139, 92, 246, 0.4);
-            }
-
-            100% {
-                box-shadow: 0 0 70px rgba(139, 92, 246, 0.8), inset 0 0 70px rgba(139, 92, 246, 0.8);
-                background: rgba(139, 92, 246, 0.2);
-            }
-        }
-
-        @keyframes pulse-3 {
-            0% {
-                box-shadow: 0 0 20px rgba(6, 182, 212, 0.4), inset 0 0 20px rgba(6, 182, 212, 0.4);
-            }
-
-            100% {
-                box-shadow: 0 0 70px rgba(6, 182, 212, 0.8), inset 0 0 70px rgba(6, 182, 212, 0.8);
-                background: rgba(6, 182, 212, 0.2);
-            }
-        }
-
-        @keyframes pulse-4 {
-            0% {
-                box-shadow: 0 0 20px rgba(251, 146, 60, 0.4), inset 0 0 20px rgba(251, 146, 60, 0.4);
-            }
-
-            100% {
-                box-shadow: 0 0 70px rgba(251, 146, 60, 0.8), inset 0 0 70px rgba(251, 146, 60, 0.8);
-                background: rgba(251, 146, 60, 0.2);
-            }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .holo-container { animation: none; transform: rotateX(60deg); }
         }
 
         /* --- LAYOUT --- */
         .wrapper {
-            max-width: 1300px;
+            max-width: 1240px;
             margin: 0 auto;
             padding: 40px 20px;
             display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 40px;
+            grid-template-columns: 330px 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        aside {
+            position: sticky;
+            top: 24px;
         }
 
         @media (max-width: 950px) {
-            .wrapper {
-                grid-template-columns: 1fr;
-            }
+            .wrapper { grid-template-columns: 1fr; }
+            aside { position: static; }
         }
 
-        /* --- GLASSMORPHISM COMPONENTS --- */
         .glass-panel {
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: var(--glass-bg);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
-            margin-bottom: 30px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .glass-panel:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
-        }
-
-        h1,
-        h2,
-        h3 {
-            color: var(--text-dark);
+            padding: 28px;
+            box-shadow: 0 10px 40px rgba(124, 58, 237, 0.06);
+            margin-bottom: 24px;
         }
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.45rem;
             font-weight: 800;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            margin-bottom: 18px;
         }
 
         .gradient-text {
@@ -246,79 +180,65 @@
             -webkit-text-fill-color: transparent;
         }
 
-        a {
-            color: var(--accent-violet);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-
-        a:hover {
-            color: var(--accent-magenta);
-        }
-
         /* --- SIDEBAR --- */
         .profile-header {
             text-align: center;
-            margin-bottom: 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding-top: 36px;
         }
 
         .profile-pic {
-            width: 140px;
-            height: 140px;
+            width: 136px;
+            height: 136px;
             border-radius: 50%;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             border: 4px solid #fff;
             box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
             object-fit: cover;
             object-position: center 10%;
-            /* Adjust crop to fit passport view */
         }
 
         .profile-name {
             font-family: var(--font-serif);
-            font-size: 2.8rem;
-            /* Increased size */
+            font-size: 2.6rem;
             line-height: 1.1;
-            margin-bottom: 15px;
-            font-weight: 800;
+            margin-bottom: 14px;
             background: linear-gradient(135deg, var(--accent-magenta), var(--accent-violet));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: 1px;
-            filter: drop-shadow(0px 4px 8px rgba(236, 72, 153, 0.25));
-            /* Gorgeous soft shadow */
+            filter: drop-shadow(0 4px 8px rgba(236, 72, 153, 0.25));
         }
 
         .profile-title {
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 600;
             color: var(--accent-magenta);
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .contact-list,
-        .edu-list {
-            list-style: none;
+        .profile-location {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-top: 4px;
         }
+
+        .contact-list { list-style: none; }
 
         .contact-list li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             font-size: 0.95rem;
             display: flex;
             align-items: center;
             gap: 10px;
+            word-break: break-word;
         }
 
         .edu-item {
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            margin-bottom: 16px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
 
         .edu-item:last-child {
@@ -327,67 +247,114 @@
             padding-bottom: 0;
         }
 
-        .edu-degree {
-            font-weight: 800;
-            font-size: 0.95rem;
-        }
+        .edu-degree { font-weight: 800; font-size: 0.95rem; }
+        .edu-meta { font-size: 0.86rem; color: var(--text-muted); }
 
-        .edu-meta {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
+        .stack-group { margin-bottom: 14px; }
+        .stack-group:last-child { margin-bottom: 0; }
 
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            color: var(--accent-violet);
-            padding: 6px 14px;
-            border-radius: 20px;
+        .stack-label {
             font-size: 0.85rem;
             font-weight: 600;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            color: var(--text-muted);
+            margin-bottom: 6px;
         }
 
-        /* --- MAIN CONTENT --- */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(124, 58, 237, 0.22);
+            color: var(--accent-violet);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        .tag.cyan {
+            border-color: rgba(8, 145, 178, 0.35);
+            color: var(--accent-cyan);
+        }
+
+        /* --- HERO --- */
         .hero {
-            padding: 40px;
-            border-radius: 30px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
+            padding: 44px 40px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.45));
+        }
+
+        .hero h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+            line-height: 1.2;
+            margin-bottom: 18px;
+            max-width: 22ch;
         }
 
         .hero p {
-            font-size: 1.15rem;
+            font-size: 1.12rem;
             line-height: 1.8;
-            color: #334155;
+            color: var(--text-body);
+            max-width: 65ch;
+            margin-bottom: 14px;
         }
 
-        /* Grid for Projects */
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 11px 22px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-magenta), var(--accent-violet));
+            color: #fff;
+            box-shadow: 0 8px 22px rgba(219, 39, 119, 0.3);
+        }
+
+        .btn-primary:hover { color: #fff; filter: brightness(1.08); }
+
+        .btn-ghost {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            color: var(--accent-violet);
+        }
+
+        /* --- PROJECTS --- */
+        .section-intro {
+            color: var(--text-body);
+            margin: -6px 0 22px;
+            max-width: 65ch;
+        }
+
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
 
         .project-card {
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.72);
             border: 1px solid #fff;
-            padding: 25px;
+            padding: 24px 24px 22px 28px;
             border-radius: 16px;
-            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-        }
-
-        .project-card:hover {
-            background: #ffffff;
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.1);
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card::before {
@@ -398,70 +365,122 @@
             width: 4px;
             height: 100%;
             background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-violet));
-            border-radius: 4px 0 0 4px;
+        }
+
+        .project-card.featured {
+            grid-column: 1 / -1;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .project-card.featured::before {
+            width: 6px;
+            background: linear-gradient(to bottom, var(--accent-magenta), var(--accent-violet));
         }
 
         .project-title {
             font-weight: 800;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             margin-bottom: 8px;
-            color: var(--text-dark);
         }
 
         .project-desc {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+            font-size: 0.94rem;
+            color: var(--text-body);
+            margin-bottom: 14px;
+            flex-grow: 1;
         }
 
-        /* Timeline for Experience */
+        .project-desc ul {
+            margin: 8px 0 0 18px;
+        }
+
+        .project-desc li { margin-bottom: 4px; }
+
+        .project-card .tags { margin-bottom: 16px; }
+
+        .project-links {
+            display: flex;
+            gap: 16px;
+            font-size: 0.92rem;
+        }
+
+        .small-projects {
+            margin-top: 22px;
+            list-style: none;
+        }
+
+        .small-projects li {
+            padding: 12px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            font-size: 0.94rem;
+            color: var(--text-body);
+        }
+
+        .small-projects strong { color: var(--text-dark); }
+
+        /* --- HOW I WORK --- */
+        .principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
+
+        .principles h3 {
+            font-size: 1rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .principles p {
+            font-size: 0.93rem;
+            color: var(--text-body);
+        }
+
+        /* --- EXPERIENCE TIMELINE --- */
         .timeline {
             position: relative;
             padding-left: 30px;
-            border-left: 2px solid rgba(236, 72, 153, 0.2);
+            border-left: 2px solid rgba(236, 72, 153, 0.25);
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 30px;
+            margin-bottom: 28px;
         }
+
+        .timeline-item:last-child { margin-bottom: 0; }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -37px;
-            top: 4px;
+            left: -38px;
+            top: 5px;
             width: 12px;
             height: 12px;
             background: #fff;
             border: 3px solid var(--accent-magenta);
             border-radius: 50%;
-            box-shadow: 0 0 10px rgba(236, 72, 153, 0.4);
         }
 
-        .role-title {
-            font-weight: 800;
-            font-size: 1.1rem;
-            color: var(--text-dark);
-        }
+        .role-title { font-weight: 800; font-size: 1.08rem; }
 
         .role-company {
             font-weight: 600;
             color: var(--accent-magenta);
             font-size: 0.9rem;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .role-desc {
-            list-style-type: none;
-            padding: 0;
+            list-style: none;
             font-size: 0.95rem;
-            color: #475569;
+            color: var(--text-body);
         }
 
         .role-desc li {
             position: relative;
-            padding-left: 15px;
-            margin-bottom: 6px;
+            padding-left: 16px;
+            margin-bottom: 5px;
         }
 
         .role-desc li::before {
@@ -472,26 +491,40 @@
             font-weight: bold;
         }
 
-        .highlight-badge {
+        /* --- PUBLICATIONS --- */
+        .pub {
+            color: var(--text-body);
+            margin-bottom: 18px;
+        }
+
+        .badge {
             display: inline-block;
             background: linear-gradient(135deg, var(--accent-magenta), var(--accent-amber));
             color: #fff;
-            padding: 4px 12px;
+            padding: 5px 14px;
             border-radius: 20px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 0.82rem;
             font-weight: 800;
-            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
-            margin-bottom: 10px;
+            margin: 0 6px 8px 0;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            padding: 10px 0 30px;
+        }
+
+        @media (max-width: 600px) {
+            .glass-panel { padding: 22px; }
+            .hero { padding: 30px 24px; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Fluid 3D Holo-Lotus Background -->
-    <div class="holo-bg">
+    <div class="holo-bg" aria-hidden="true">
         <div class="holo-container">
             <div class="petal petal-1"></div>
             <div class="petal petal-2"></div>
@@ -504,164 +537,286 @@
     <div class="wrapper">
         <!-- SIDEBAR -->
         <aside>
-            <div class="glass-panel profile-header" style="padding-top: 40px;">
-                <img src="Mercy.jpeg" alt="Mercy Ajoke Supreme" class="profile-pic">
+            <div class="glass-panel profile-header">
+                <img src="Mercy.jpeg" alt="Portrait of Mercy Ajoke Supreme" class="profile-pic">
                 <h1 class="profile-name">Mercy<br>Ajoke<br>Supreme</h1>
-                <div class="profile-title">Data Scientist &amp; CV Researcher</div>
+                <div class="profile-title">Full Stack Developer &amp; AI Engineer</div>
+                <div class="profile-location">Edmonton, Alberta, Canada</div>
             </div>
 
             <div class="glass-panel">
                 <h2 class="gradient-text">Contact</h2>
                 <ul class="contact-list">
-                    <li>📧 <a href="mailto:mercy.oghenewoakpo@gmail.com">Email Me</a></li>
-                    <li>📞 +234 913 536 7457</li>
-                    <li>🌐 <a href="https://your-github-pages-link.github.io">Portfolio Website</a></li>
-                    <li>🐙 <a href="https://github.com/MercySupremeAJ">MercySupremeAJ</a></li>
-                    <li>💼 <a href="https://www.linkedin.com/in/mercy-supreme-17815a2a6/">LinkedIn Profile</a></li>
+                    <li>📧 <a href="mailto:mercy.oghenewoakpo@gmail.com">mercy.oghenewoakpo@gmail.com</a></li>
+                    <li>🐙 <a href="https://github.com/MercySupremeAJ" target="_blank" rel="noopener">github.com/MercySupremeAJ</a></li>
+                    <li>💼 <a href="https://www.linkedin.com/in/mercy-supreme" target="_blank" rel="noopener">linkedin.com/in/mercy-supreme</a></li>
                 </ul>
             </div>
 
             <div class="glass-panel">
-                <h2 class="gradient-text-alt">Education</h2>
-
-                <div class="edu-item">
-                    <div class="edu-degree">MSc Data Science (Distinction)</div>
-                    <div class="edu-meta">Pan-Atlantic University, Lagos | 2024 – 2025<br>CGPA 4.82 / 5.00</div>
+                <h2 class="gradient-text-alt">Tech stack</h2>
+                <div class="stack-group">
+                    <div class="stack-label">Front end</div>
+                    <div class="tags">
+                        <span class="tag">React</span><span class="tag">Next.js</span><span class="tag">TypeScript</span>
+                        <span class="tag">JavaScript</span><span class="tag">Redux Toolkit</span><span class="tag">React Router</span>
+                        <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Tailwind CSS</span>
+                        <span class="tag">Vite</span>
+                    </div>
                 </div>
-
-                <div class="edu-item">
-                    <div class="edu-degree">BEng Mechanical Engineering</div>
-                    <div class="edu-meta">University of Portsmouth, UK | 2021 – 2023<br>First Class Honors</div>
+                <div class="stack-group">
+                    <div class="stack-label">Back end and data</div>
+                    <div class="tags">
+                        <span class="tag">Node.js</span><span class="tag">NPM</span><span class="tag">Java</span>
+                        <span class="tag">MySQL</span><span class="tag">SQL</span><span class="tag">REST APIs</span>
+                        <span class="tag">Python</span>
+                    </div>
                 </div>
-
-                <div class="edu-item">
-                    <div class="edu-degree">HND Petroleum Engineering</div>
-                    <div class="edu-meta">Petroleum Training Institute | 2015 – 2017<br>Distinction</div>
+                <div class="stack-group">
+                    <div class="stack-label">AI and machine learning</div>
+                    <div class="tags">
+                        <span class="tag cyan">Claude</span><span class="tag cyan">Cursor</span>
+                        <span class="tag cyan">Amazon Bedrock</span><span class="tag cyan">PyTorch</span>
+                        <span class="tag cyan">TensorFlow</span><span class="tag cyan">scikit-learn</span>
+                        <span class="tag cyan">NLP</span>
+                    </div>
+                </div>
+                <div class="stack-group">
+                    <div class="stack-label">Tools and testing</div>
+                    <div class="tags">
+                        <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Vercel</span>
+                        <span class="tag">Hardhat</span><span class="tag">Chai</span><span class="tag">Solidity</span>
+                    </div>
                 </div>
             </div>
 
             <div class="glass-panel">
-                <h2 class="gradient-text">Tech Stack</h2>
-                <div class="skills-grid">
-                    <div class="skill-tag">Python</div>
-                    <div class="skill-tag">PyTorch</div>
-                    <div class="skill-tag">TensorFlow</div>
-                    <div class="skill-tag">Computer Vision</div>
-                    <div class="skill-tag">JavaScript</div>
-                    <div class="skill-tag">React</div>
-                    <div class="skill-tag">Medical Imaging</div>
-                    <div class="skill-tag">Git</div>
+                <h2 class="gradient-text">Education</h2>
+                <div class="edu-item">
+                    <div class="edu-degree">MSc Data Science (Distinction)</div>
+                    <div class="edu-meta">Pan-Atlantic University, Lagos | 2024 – 2025<br>CGPA 4.82 / 5.00</div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-degree">BEng Mechanical &amp; Manufacturing Engineering</div>
+                    <div class="edu-meta">University of Portsmouth, UK | 2021 – 2023<br>First Class Honours</div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-degree">HND Petroleum Engineering (Distinction)</div>
+                    <div class="edu-meta">Petroleum Training Institute | 2015 – 2017</div>
                 </div>
             </div>
         </aside>
 
         <!-- MAIN CONTENT -->
         <main>
-            <div class="glass-panel hero">
-                <div class="highlight-badge">Mission Profile</div>
-                <h2 style="font-size: 2rem; margin-bottom: 15px; font-family: var(--font-serif);">Architecting the
-                    future of visual intelligence.</h2>
+            <section class="glass-panel hero">
+                <h2>I build AI-enabled web applications people can actually use.</h2>
                 <p>
-                    Passionate Data Scientist and Computer Vision Researcher specializing in representation learning, 3D
-                    volumetric segmentation, and multi-modal feature fusion. Dedicated to advancing deep learning models
-                    for medical image analysis and dense prediction through sophisticated transformer architectures and
-                    adaptive frequency weighting.
+                    I’m a full stack developer with a data science and machine learning background. I build modern
+                    single-page applications with React, Next.js, and TypeScript, and I work AI-first, using Claude and
+                    Cursor as co-developers while reviewing and testing every change.
                 </p>
-            </div>
-
-            <div class="glass-panel">
-                <h2 class="gradient-text-alt">Research Interests</h2>
-                <div class="skills-grid" style="margin-top: 15px;">
-                    <div class="skill-tag" style="border-color: rgba(6, 182, 212, 0.4); color: var(--accent-cyan);">
-                        Representation Learning Theory</div>
-                    <div class="skill-tag" style="border-color: rgba(6, 182, 212, 0.4); color: var(--accent-cyan);">
-                        Vision Transformers</div>
-                    <div class="skill-tag" style="border-color: rgba(6, 182, 212, 0.4); color: var(--accent-cyan);">
-                        Spectral Bias</div>
-                    <div class="skill-tag" style="border-color: rgba(6, 182, 212, 0.4); color: var(--accent-cyan);">
-                        Self-Supervised Learning</div>
-                    <div class="skill-tag" style="border-color: rgba(6, 182, 212, 0.4); color: var(--accent-cyan);">3D
-                        Volumetric Segmentation</div>
-                    <div class="skill-tag" style="border-color: rgba(6, 182, 212, 0.4); color: var(--accent-cyan);">
-                        Panoptic Segmentation</div>
+                <p>
+                    Before moving into software, I built deep learning models for medical imaging and worked with
+                    high-stakes data in the energy sector and the Government of Alberta. That background shapes how I
+                    build: reliable, well-tested, and focused on real users.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#projects">See my projects</a>
+                    <a class="btn btn-ghost" href="https://github.com/MercySupremeAJ" target="_blank" rel="noopener">View my GitHub</a>
+                    <a class="btn btn-ghost" href="mailto:mercy.oghenewoakpo@gmail.com">Email me</a>
                 </div>
-            </div>
+            </section>
 
-            <div class="glass-panel">
-                <h2 class="gradient-text">Selected Projects & Research</h2>
+            <section class="glass-panel" id="projects">
+                <h2 class="gradient-text">Projects</h2>
+                <p class="section-intro">Every project here was built AI-first with Claude and Cursor, with each
+                    AI-generated change reviewed and tested before it shipped.</p>
+
                 <div class="projects-grid">
-
-                    <div class="project-card">
-                        <div class="project-title">AFW-NET (Hybrid 3D U-Net)</div>
+                    <article class="project-card featured">
+                        <div class="project-title">Supremium: Data Science E-Learning Platform</div>
                         <div class="project-desc">
-                            Designed a hybrid 3D U-Net integrating Fast Fourier Transform and Adaptive Frequency
-                            Weighting for volumetric MRI feature learning. Performed multi-modal fusion on the BraTS
-                            benchmark using PyTorch.
+                            A fully responsive learning platform for aspiring data scientists and AI practitioners,
+                            built from scratch in React.
+                            <ul>
+                                <li>20 curated courses with video lessons from trusted educators</li>
+                                <li>200 quiz questions with automatic grading and answer correction</li>
+                                <li>Real-time progress tracking and dynamic certificate generation</li>
+                                <li>User authentication, protected routes, and dark and light modes</li>
+                            </ul>
                         </div>
-                    </div>
+                        <div class="tags">
+                            <span class="tag">React</span><span class="tag">Vite</span><span class="tag">React Router</span>
+                            <span class="tag">Context API</span><span class="tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://elearning-platform-psi.vercel.app/" target="_blank" rel="noopener">Live demo</a>
+                            <a href="https://github.com/MercySupremeAJ/elearning-platform" target="_blank" rel="noopener">Source code</a>
+                        </div>
+                    </article>
 
-                    <div class="project-card">
-                        <div class="project-title">Transformer Predictions</div>
+                    <article class="project-card">
+                        <div class="project-title">AfriHire: Remote Jobs for African Tech Talent</div>
                         <div class="project-desc">
-                            Explored architectural optimization strategies for Vision Transformers in segmentation
-                            tasks. Benchmarked performance sensitivity and multi-scale feature learning.
+                            A hiring platform that models the full pipeline, from Applied to Under Review to Shortlisted
+                            or Rejected, with real-time updates for candidates and companies. Uses normalized Redux
+                            Toolkit state, a 300 ms debounced search synced to URL parameters, and a skills-matching
+                            engine that ranks jobs by relevance.
                         </div>
-                    </div>
+                        <div class="tags">
+                            <span class="tag">React</span><span class="tag">Redux Toolkit</span>
+                            <span class="tag">React Router</span><span class="tag">Vite</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://job-board-platform-ruddy.vercel.app/" target="_blank" rel="noopener">Live demo</a>
+                        </div>
+                    </article>
 
-                    <div class="project-card">
-                        <div class="project-title">MovieLand RecSys</div>
+                    <article class="project-card">
+                        <div class="project-title">Traffic &amp; Route Optimization Visualizer</div>
                         <div class="project-desc">
-                            Developed a full-stack, responsive movie search application using dynamic UI rendering,
-                            asynchronous API integration, and client-side optimization.
+                            Simulates urban route optimization on a randomized city network, implementing Dijkstra’s
+                            algorithm, BFS, DFS, and three sorting algorithms. A useReducer state machine and a
+                            pre-computation engine keep animations smooth, and two algorithms can run side by side.
                         </div>
-                    </div>
+                        <div class="tags">
+                            <span class="tag">React 19</span><span class="tag">Vite</span><span class="tag">SVG</span>
+                            <span class="tag">Algorithms</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://traffic-and-route-optimization-visu-seven.vercel.app/" target="_blank" rel="noopener">Live demo</a>
+                            <a href="https://github.com/MercySupremeAJ/Traffic_and_Route_Optimization_Visualization" target="_blank" rel="noopener">Source code</a>
+                        </div>
+                    </article>
 
-                    <div class="project-card">
-                        <div class="project-title">Data Science Quiz Engine</div>
+                    <article class="project-card">
+                        <div class="project-title">G8S University IDO Platform</div>
                         <div class="project-desc">
-                            Built an interactive evaluation platform utilizing dynamic question handling and backend
-                            scoring logic to reinforce machine learning concepts.
+                            A token-sale web app built for my MSc blockchain course, with MetaMask integration and
+                            ERC-20 and sale smart contracts deployed to the Sepolia testnet. Includes Hardhat test
+                            suites, a product requirements document, and 119 documented test cases.
                         </div>
-                    </div>
+                        <div class="tags">
+                            <span class="tag">Next.js</span><span class="tag">TypeScript</span>
+                            <span class="tag">Tailwind</span><span class="tag">Solidity</span><span class="tag">Hardhat</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/MercySupremeAJ/G8S-IDO-Implementation" target="_blank" rel="noopener">Source code</a>
+                        </div>
+                    </article>
 
+                    <article class="project-card">
+                        <div class="project-title">AFW-Net: Brain Tumour Segmentation (MSc Thesis)</div>
+                        <div class="project-desc">
+                            A hybrid 3D U-Net that combines Fast Fourier Transform features, adaptive frequency
+                            weighting, and cross-domain attention to outline brain tumours in MRI scans. Trained on the
+                            BraTS benchmark. Accepted for publication in IJAI.
+                        </div>
+                        <div class="tags">
+                            <span class="tag cyan">PyTorch</span><span class="tag cyan">Deep Learning</span>
+                            <span class="tag cyan">Medical Imaging</span>
+                        </div>
+                    </article>
                 </div>
-            </div>
 
-            <div class="glass-panel">
-                <h2 class="gradient-text-alt">Experience</h2>
+                <ul class="small-projects">
+                    <li><strong>Data Science Quiz App:</strong> 50 timed questions across 6 categories, with sign-up,
+                        a leaderboard, and Chart.js results, built in vanilla JavaScript.
+                        <a href="https://github.com/MercySupremeAJ/Data-Science-Quiz-Application" target="_blank" rel="noopener">Source code</a></li>
+                    <li><strong>IP Address Tracker:</strong> looks up any IP address or domain and shows its location
+                        on a Leaflet map, using an IP geolocation API with error handling.
+                        <a href="https://github.com/MercySupremeAJ/AJS-IP-ADDRESS-TRACKER" target="_blank" rel="noopener">Source code</a></li>
+                </ul>
+            </section>
+
+            <section class="glass-panel">
+                <h2 class="gradient-text-alt">How I work with AI</h2>
+                <div class="principles">
+                    <div>
+                        <h3>AI as a co-developer</h3>
+                        <p>I use Claude and Cursor to write, debug, and document code faster, and I stay accountable
+                            for every line that ships.</p>
+                    </div>
+                    <div>
+                        <h3>Review and test everything</h3>
+                        <p>I treat AI-generated code like a colleague’s pull request: I read it, test it, and make
+                            sure I understand it.</p>
+                    </div>
+                    <div>
+                        <h3>Protect people’s data</h3>
+                        <p>I never paste sensitive or personal data into AI tools, and I design AI features with
+                            privacy and fairness in mind.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="glass-panel">
+                <h2 class="gradient-text">Experience</h2>
                 <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="role-title">Data Analyst (Contract)</div>
+                        <div class="role-company">Government of Alberta, Transportation and Economic Corridors | Sep 2026 – Oct 2026</div>
+                        <ul class="role-desc">
+                            <li>Mapped data from source to target systems for the Motor Vehicle Modernization project
+                                in preparation for data migration.</li>
+                            <li>Documented transformation rules and business definitions, and flagged data quality
+                                issues for resolution.</li>
+                        </ul>
+                    </div>
 
                     <div class="timeline-item">
-                        <div class="role-title">Completions Specialist</div>
-                        <div class="role-company">SLB (Schlumberger) Ltd | Jul 2019 – Oct 2022</div>
+                        <div class="role-title">Machine Learning Researcher</div>
+                        <div class="role-company">CAMERA MRI Africa (Remote) | Feb 2026 – Aug 2026</div>
                         <ul class="role-desc">
-                            <li>Analyzed high-volume operational and wellbore data to support informed decision-making.
-                            </li>
-                            <li>Identified trends and anomalies in structured and semi-structured datasets, turning
-                                technical data into actionable insights.</li>
-                            <li>Prepared comprehensive post-job analytical reports ensuring high data integrity.</li>
-                            <li>Led upper completions installations while maintaining strict adherence to safety plans.
-                            </li>
+                            <li>Built deep learning models to classify brain tumours, breast cancer, malaria,
+                                tuberculosis, and pneumonia from medical images, supporting clinicians as a “second
+                                eye.”</li>
+                            <li>Built reproducible Python pipelines under Git that automated data preparation,
+                                evaluation, and reporting.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="role-title">Web Development Trainee</div>
+                        <div class="role-company">Web3Bridge | Jul 2025 – May 2026</div>
+                        <ul class="role-desc">
+                            <li>Hands-on developer training building web interfaces with HTML, CSS, JavaScript, and
+                                React.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="role-title">Engineering Specialist (Completions)</div>
+                        <div class="role-company">SLB (Schlumberger) | Jul 2019 – Oct 2022</div>
+                        <ul class="role-desc">
+                            <li>Analyzed high-volume operational data in real time, and identified an anomaly that
+                                prevented an estimated $250K equipment failure.</li>
+                            <li>Built KPI dashboards in Excel and Power BI, and co-led multidisciplinary teams on
+                                operations valued at $1.2M+.</li>
                         </ul>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="glass-panel" style="text-align: center; padding: 40px;">
-                <h2 class="gradient-text" style="justify-content: center;">Publications & Awards</h2>
-                <p style="margin-bottom: 20px;">
-                    <strong>Author:</strong> "Brain Tumor Segmentation Employing Adaptive Frequency Weighting and
-                    Cross-Domain Attention."<br>
-                    <em>Submitted to IAES International Journal of Artificial Intelligence.</em>
+            <section class="glass-panel">
+                <h2 class="gradient-text-alt">Publications and awards</h2>
+                <p class="pub">
+                    <strong>“Brain Tumor Segmentation Employing Adaptive Frequency Weighting and Cross-Domain
+                        Attention.”</strong><br>
+                    Accepted for publication in the IAES International Journal of Artificial Intelligence (IJAI), 2026.
                 </p>
-                <div class="highlight-badge">Best Graduating Student</div>
-                <div class="highlight-badge">Overall Best Female Graduate</div>
-            </div>
+                <span class="badge">Best Graduating Student, PTI 2017</span>
+                <span class="badge">Overall Best HND Female Graduate, PTI 2017</span>
+                <span class="badge">AWS AI &amp; ML Foundations, Udacity</span>
+            </section>
 
+            <footer>
+                © 2026 Mercy Ajoke Supreme. Built with HTML and CSS.
+            </footer>
         </main>
     </div>
 
 </body>
-
 
 </html>
